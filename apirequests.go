@@ -11,7 +11,7 @@ func SendServerHeartBeat(serverAddress string, activeConnections int, gameMode s
 
 	resJSON, err := http.Get("http://localhost:9000/loadbalancer/updateServerInformation?address=http://localhost:9004&activeConnections=5&gameMode=dice")
 	if err != nil {
-		log.Fatalln("Failed To Fetch Server Address Due To Errror : ", err)
+		log.Fatalln("Failed To Fetch Server Response Due To Errror : ", err)
 	}
 	serverMessage, err := ioutil.ReadAll(resJSON.Body)
 	if err != nil {
