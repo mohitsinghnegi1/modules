@@ -13,6 +13,7 @@ func SendServerHeartBeat(serverAddress string, activeConnections int, gameMode s
 	if err != nil {
 		log.Fatalln("Failed To Fetch Server Response Due To Errror : ", err)
 	}
+	defer resJSON.Body.Close()
 	serverMessage, err := ioutil.ReadAll(resJSON.Body)
 	if err != nil {
 		log.Fatalln("Failed To Read Response Body Due to Error : ", err)
@@ -28,6 +29,7 @@ func FetchGameRoomServerAddress(bucket string, gameMode string, channel chan str
 	if err != nil {
 		log.Fatalln("Failed To Fetch Server Address Due To Errror : ", err)
 	}
+	defer resJSON.Body.Close()
 	serverAddress, err := ioutil.ReadAll(resJSON.Body)
 	if err != nil {
 		log.Fatalln("Failed To Read Response Body Due to Error : ", err)
