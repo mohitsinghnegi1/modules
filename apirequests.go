@@ -22,7 +22,7 @@ func SendServerHeartBeat(serverAddress string, activeConnections int, gameMode s
 }
 
 // FetchGameRoomServerAddress Function that takes two parameters bucket and gameMode
-func FetchGameRoomServerAddress(bucket string, gameMode string, c chan string) {
+func FetchGameRoomServerAddress(bucket string, gameMode string, channel chan string) {
 	println("Inside GetGameRoomServer Address Function :")
 	resJSON, err := http.Get("http://localhost:9000/loadbalancer/registerClient?bucket=hard&gameMode=cardParty")
 	if err != nil {
@@ -32,5 +32,5 @@ func FetchGameRoomServerAddress(bucket string, gameMode string, c chan string) {
 	if err != nil {
 		log.Fatalln("Failed To Read Response Body Due to Error : ", err)
 	}
-	c <- string(serverAddress)
+	channel <- string(serverAddress)
 }
