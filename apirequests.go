@@ -17,7 +17,7 @@ func SendServerHeartBeat(serverAddress string, activeConnections int, gameMode s
 	if err != nil {
 		log.Fatalln("Failed To Read Response Body Due to Error : ", err)
 	}
-	println("ssd ", string(serverMessage))
+	println("Response : ", string(serverMessage))
 
 }
 
