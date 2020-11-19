@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/mohitsinghnegi1/Frontend-loadbalancer/config"
+	"Frontend-loadbalancer/config"
 )
 
 // Configuration Variables
